@@ -1,0 +1,11 @@
+{
+  "uri": "127.0.0.1",
+  "port": "4002",
+  "proxyTable": [{
+    "path": "/v1",
+    "target": "http://192.168.10.22:9180"
+  }, {
+    "path": "/oauth/login",
+    "proxyUrl": "http://192.168.20.108:12001/oauth/login"
+  }]
+}
