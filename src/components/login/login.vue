@@ -13,7 +13,7 @@
 </div>
 <div class="main" v-else>
 <p>
-<a href="./report.html" target="_blank">report</a>
+<a href="./report.html" target="_blank">report-测试提交</a>
 </p>
 <p>
 <a href="./exam.html" target="_blank">exam</a>
