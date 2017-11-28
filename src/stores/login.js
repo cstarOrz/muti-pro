@@ -61,8 +61,7 @@ const actions = {
         }
       });
     });
-    
-  };
+  }
 };
 
 // getters are functions
