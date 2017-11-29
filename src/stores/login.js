@@ -8,7 +8,7 @@ import {
 const state = {
   isLogin: storage.getStorage("isLogin") === "true",
   userInfo: {}
-}
+};
 
 // mutations are operations that actually mutates the state.
 // each mutation handler gets the entire state tree as the
@@ -28,7 +28,7 @@ const mutations = {
     storage.removeStorage("isLogin");
     storage.removeStorage("userInfo");
   }
-}
+};
 
 // actions are functions that cause side effects and can involve
 // asynchronous operations.
@@ -45,13 +45,12 @@ const actions = {
           alert(res.data.message);
         }
       });
-    })
-
+    });
   },
   loginOutAction: ({
     commit
   }) => {
-    return new Promise((resolve,reject)=>{
+    return new Promise((resolve, reject) => {
       userLogout().then(res => {
         if (res.data.code == 200) {
           commit('loginOut');
@@ -80,6 +79,6 @@ export default {
   getters,
   actions,
   mutations
-}
+};
 
-//创建
+// 创建
