@@ -47,6 +47,13 @@
     </p>
     <svg :width="svgWidth" :height="svgHeight" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
         <path :d="thrPath" stroke="#ff0000" fill="none" style="stroke-width: 2px;"></path>
+        <circle :cx="threeBezier.x" :cy="threeBezier.y" r="4" stroke-width="0" fill="#f00"/>
+        <circle :cx="threeBezier.x1" :cy="threeBezier.y1" r="4" stroke-width="0" fill="#f00"/>
+        <circle :cx="threeBezier.x2" :cy="threeBezier.y2" r="4" stroke-width="0" fill="#f00"/>
+        <circle :cx="threeBezier.x3" :cy="threeBezier.y3" r="4" stroke-width="0" fill="#f00"/>
+        <line fill="none" stroke="#b6a2de" stroke-width="2" :x1="threeBezier.x" :y1="threeBezier.y" :x2="threeBezier.x1" :y2="threeBezier.y1" />
+        <line fill="none" stroke="#b6a2de" stroke-width="2" :x1="threeBezier.x1" :y1="threeBezier.y1" :x2="threeBezier.x2" :y2="threeBezier.y2" />
+        <line fill="none" stroke="#b6a2de" stroke-width="2" :x1="threeBezier.x2" :y1="threeBezier.y2" :x2="threeBezier.x3" :y2="threeBezier.y3" />
     </svg>
     <p>三次贝塞尔曲线---带S</p>
     <p>
@@ -57,6 +64,17 @@
     </p>
     <svg :width="svgWidth" :height="svgHeight" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
         <path :d="thrTPath" stroke="#ff0000" fill="none" style="stroke-width: 2px;"></path>
+        <circle :cx="threeBezier.x" :cy="threeBezier.y" r="4" stroke-width="0" fill="#f00"/>
+        <circle :cx="threeBezier.x1" :cy="threeBezier.y1" r="4" stroke-width="0" fill="#f00"/>
+        <circle :cx="threeBezier.x2" :cy="threeBezier.y2" r="4" stroke-width="0" fill="#f00"/>
+        <circle :cx="threeBezier.x3" :cy="threeBezier.y3" r="4" stroke-width="0" fill="#f00"/>
+        <circle :cx="thrT.x1" :cy="thrT.y1" r="4" stroke-width="0" fill="#f00"/>
+        <circle :cx="thrT.x2" :cy="thrT.y2" r="4" stroke-width="0" fill="#f00"/>
+        <line fill="none" stroke="#b6a2de" stroke-width="2" :x1="threeBezier.x" :y1="threeBezier.y" :x2="threeBezier.x1" :y2="threeBezier.y1" />
+        <line fill="none" stroke="#b6a2de" stroke-width="2" :x1="threeBezier.x1" :y1="threeBezier.y1" :x2="threeBezier.x2" :y2="threeBezier.y2" />
+        <line fill="none" stroke="#b6a2de" stroke-width="2" :x1="threeBezier.x2" :y1="threeBezier.y2" :x2="threeBezier.x3" :y2="threeBezier.y3" />
+        <line fill="none" stroke="#b6a2de" stroke-width="2" :x1="threeBezier.x3" :y1="threeBezier.y3" :x2="thrT.x1" :y2="thrT.y1" />
+        <line fill="none" stroke="#b6a2de" stroke-width="2" :x1="thrT.x1" :y1="thrT.y1" :x2="thrT.x2" :y2="thrT.y2" />
     </svg>
   </div>
 </template>
