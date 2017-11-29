@@ -80,5 +80,3 @@ export default {
   actions,
   mutations
 };
-
-// 创建
