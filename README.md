@@ -15,7 +15,14 @@ npm run dev
 npm run build
 
 # 增加一个tmpl生成，pages下目录结构，从tmpls获取(默认new-tmpl)
-npm run tmpl yourdir
+npm run tmpl === npm run tmpl new-tmpl
+
+## 默认不添加兼容promise和console，默认new-tmpl，false
+npm run tmpl yourdir === npm run tmpl yourdir false
+
+## 添加兼容promise和console
+npm run tmpl true === npm run tmpl new-tmpl true
+npm run tmpl yourdir true === npm run tmpl yourdir true
 
 ```
 ## 文件说明

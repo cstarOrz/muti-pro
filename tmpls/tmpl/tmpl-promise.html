@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>
+    <%= htmlWebpackPlugin.options.title %>
+  </title>
+  <% for (var css in htmlWebpackPlugin.files.css) { %>
+    <link href="<%=htmlWebpackPlugin.files.css[css] %>" rel="stylesheet">
+  <% } %>
+  <script>
+    (function (win) {
+      // 重置为空函数，避免JS报错
+      var console = win.console || {},
+        funcs = ['assert', 'clear', 'count', 'debug', 'dir', 'dirxml',
+          'error', 'exception', 'group', 'groupCollapsed', 'groupEnd',
+          'info', 'log', 'markTimeline', 'profile', 'profileEnd',
+          'table', 'time', 'timeEnd', 'timeStamp', 'trace', 'warn'];
+      for (var i = 0, l = funcs.length; i < l; i++) {
+        var func = funcs[i];
+        if (!console[func]) {
+          console[func] = function () { };
+        }
+      };
+      function loadJs(src) {
+        var head = document.getElementsByTagName('head')[0];
+        var script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.charset = 'utf-8';
+        script.src = src;
+        head.appendChild(script);
+      }
+      if (!window['Promise']) {
+        loadJs('/static/promise/es5-shim-4.5.9.min.js');
+        loadJs('/static/promise/promise-7.0.4.min.js');
+      };
+    })(window);
+  </script>
+</head>
+
+<body>
+  <div id="app"></div>
+  <% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
+    <script type="text/javascript" src="<%=htmlWebpackPlugin.files.chunks[chunk].entry %>"></script>
+  <% } %>
+</body>
+
+</html>

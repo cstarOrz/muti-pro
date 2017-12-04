@@ -3,9 +3,26 @@ let path = require('path');
 let walk = require('walkdir');
 
 let argv = process.argv.splice(2),
-  newDirName = argv[0] ? argv[0] : 'new-tmpl',
+  isCompatible = false,
+  newDirName = '',
   rootDir = path.resolve(__dirname, '../');
 
+if (argv[0]) {
+  if (argv[0] === 'false') {
+    newDirName = 'new-tmpl';
+  } else if (argv[0] === 'true') {
+    newDirName = 'new-tmpl';
+    isCompatible = true;
+  } else {
+    newDirName = argv[0];
+    isCompatible = (argv[1] && argv[1] !== 'false') || false;
+  }
+} else {
+  newDirName = 'new-tmpl';
+}
+console.log('isCompatible', isCompatible);
+console.log('newDirName', newDirName);
+console.log(argv);
 let tmplDir = path.join(__dirname, '/tmpl/');
 let newDir = path.join(rootDir, 'src/pages/' + newDirName);
 
@@ -17,8 +34,9 @@ if (!fs.existsSync(newDir)) {
     if (stat.size > 0) {
       if (newPath.indexOf('tmpl.html') > -1) {
         let newPathHtml = newPath.replace(/tmpl\.html/g, newDirName + '.html');
-        fs.writeFileSync(newPathHtml, fs.readFileSync(filename));
-      } else if (filename.indexOf('tmpl.js') > -1) {
+        let resFilename = isCompatible ? (filename.replace(/tmpl\.html/g,'tmpl-promise.html')) : filename;
+        fs.writeFileSync(newPathHtml, fs.readFileSync(resFilename));
+      } else if (filename.indexOf('tmpl-promise.html') > -1) {} else if (filename.indexOf('tmpl.js') > -1) {
         let newPathJs = newPath.replace(/tmpl\.js/g, newDirName + '.js');
         fs.writeFileSync(newPathJs, fs.readFileSync(filename));
       } else {
