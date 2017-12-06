@@ -8,7 +8,6 @@ const proConfig = require('../pro.config.json');
 function makrProxy() {
   const pt = {};
   proConfig.proxyTable.forEach(function (element) {
-    let pathRewrite = {};
     pt[element.path] = {
       target: element.target,
       changeOrigin: true,
