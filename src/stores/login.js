@@ -19,14 +19,10 @@ const mutations = {
   login(state, res) {
     state.userInfo = res;
     state.isLogin = true;
-    storage.setStorage("isLogin", "true");
-    storage.setStorage("userInfo", res);
   },
   loginOut(state) {
     state.isLogin = false;
     state.userInfo = {};
-    storage.removeStorage("isLogin");
-    storage.removeStorage("userInfo");
   }
 };
 
@@ -40,6 +36,8 @@ const actions = {
       userLogin(config.loginName, config.passWord).then(res => {
         if (res.data.code == 200) {
           commit('login', res.data.data);
+          storage.setStorage("isLogin", "true");
+          storage.setStorage("userInfo", res);
           resolve();
         } else {
           alert(res.data.message);
@@ -54,6 +52,8 @@ const actions = {
       userLogout().then(res => {
         if (res.data.code == 200) {
           commit('loginOut');
+          storage.removeStorage("isLogin");
+          storage.removeStorage("userInfo");
           resolve();
         } else {
           alert(res.data.message);

@@ -9,13 +9,10 @@ function makrProxy() {
   const pt = {};
   proConfig.proxyTable.forEach(function (element) {
     let pathRewrite = {};
-    // (element.path == '/api') ? '/'
-    pathRewrite['^' + element.path] = element.path;
     pt[element.path] = {
       target: element.target,
       changeOrigin: true,
-      secure: false,
-      pathRewrite: pathRewrite
+      secure: false
     };
   }, this);
   return pt;

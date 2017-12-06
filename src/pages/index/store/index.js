@@ -8,5 +8,5 @@ const store = new Vuex.Store({
   modules: {
     loginStore: loginStore
   }
-})
+});
 export default store;
