@@ -33,7 +33,7 @@ const actions = {
     commit
   }, config) => {
     return new Promise((resolve, reject) => {
-      userLogin(config.loginName, config.passWord).then(res => {
+      userLogin(config).then(res => {
         if (res.data.code == 200) {
           commit('login', res.data.data);
           storage.setStorage("isLogin", "true");
@@ -60,6 +60,11 @@ const actions = {
         }
       });
     });
+  },
+  loginInfoAction: ({
+    commit
+  }) => {
+    console.log('loginInfo');
   }
 };
 

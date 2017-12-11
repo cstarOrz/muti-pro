@@ -29,6 +29,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 import "@/assets/normalize.css";
 export default {
   name: "login",
@@ -45,7 +46,7 @@ export default {
         this.$store
           .dispatch("loginStore/loginAction", {
             loginName: this.loginName,
-            passWord: this.passWord
+            password: this.passWord
           })
           .then(res => {
             this.isLogin = this.$store.getters["loginStore/isLogin"];
@@ -53,6 +54,7 @@ export default {
       } else {
         console.log("error");
       }
+      console.log('this.$store', this.$store);
     },
     loginOut() {
       this.$store.dispatch("loginStore/loginOutAction").then(res => {
@@ -60,10 +62,16 @@ export default {
         this.isLogin = this.$store.getters["loginStore/isLogin"];
       });
     },
+    ...mapActions({
+      loginInfo: 'loginStore/loginInfoAction'
+    }),
     resetFrom() {
       this.loginName = "";
       this.passWord = "";
     }
+  },
+  mounted () {
+    this.loginInfo();
   }
 };
 </script>
