@@ -19,7 +19,7 @@ export default {
     if (!isLogin) {
       window.location.href = "./index.html";
     } else {
-      this.text = "欢迎" + userInfo.loginName;
+      this.text = "欢迎" + userInfo.userName;
     }
   }
 };

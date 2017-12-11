@@ -37,7 +37,7 @@ const actions = {
         if (res.data.code == 200) {
           commit('login', res.data.data);
           storage.setStorage("isLogin", "true");
-          storage.setStorage("userInfo", res);
+          storage.setStorage("userInfo", res.data.data);
           resolve();
         } else {
           alert(res.data.message);

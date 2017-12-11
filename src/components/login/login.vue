@@ -19,9 +19,6 @@
 <a href="./exam.html" target="_blank">exam</a>
 </p>
 <p>
-<a href="./counter.html" target="_blank">counter</a>
-</p>
-<p>
 <button @click="loginOut()">loginOut</button>
 </p>
 </div>
