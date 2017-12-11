@@ -24,6 +24,8 @@ npm run tmpl yourdir === npm run tmpl yourdir false
 npm run tmpl true === npm run tmpl new-tmpl true
 npm run tmpl yourdir true === npm run tmpl yourdir true
 
+# 启动服务端
+npm run server
 ```
 ## 文件说明
 *  pro.config.json----本地预览地址及反向代理设置
@@ -37,4 +39,5 @@ export default {
   mutations
 }
 ```
+*  data/*json ---- json格式数据库，默认用户root/admin
 
